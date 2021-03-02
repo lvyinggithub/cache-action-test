@@ -30,12 +30,13 @@ jobs:
       with:
         path: cachestr
         key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./1.txt') }}
-    - name: Generate cachestr
-      if: steps.cachestr.outputs.cache-hit != 'true'
-      run: rm -rf ./1.txt;echo "rm file";echo "run Generate.sh";
+
     - name: ls  ./
       run: ls -l
     - name: hash
       run: echo ${{ hashFiles('./1.txt') }}
     - name: cat  ./
       run: cat ./1.txt
+    - name: Generate cachestr
+      if: steps.cachestr.outputs.cache-hit != 'true'
+      run: rm -rf ./1.txt;echo "rm file";echo "run Generate.sh";
