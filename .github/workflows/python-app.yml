@@ -36,3 +36,10 @@ jobs:
         python -v
     - name: ls 
       run: cd ~/.cache/pip;ls -l
+      
+    - uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
