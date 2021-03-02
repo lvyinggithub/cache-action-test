@@ -28,3 +28,5 @@ jobs:
         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
         restore-keys: |
           ${{ runner.os }}-go-
+    - name: ls
+      run: cd ~/go/pkg/mod;ls -l
