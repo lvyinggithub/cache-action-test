@@ -34,3 +34,5 @@ jobs:
     - name: Test 
       run: |
         python -v
+    - name: ls 
+      run: cd ~/.cache/pip;ls -l
