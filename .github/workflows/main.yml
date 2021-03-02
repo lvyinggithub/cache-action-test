@@ -26,3 +26,6 @@ jobs:
 
     - name: Use cachestr
       run: echo "use cache:cachestr";
+
+    - name: print cachestr
+      run: echo steps.cachestr.outputs.cache-hit
