@@ -1,5 +1,3 @@
-
-
 name: Caching file2
 
 on: 
@@ -21,31 +19,31 @@ jobs:
 
 
 
-    - name: ls  ./
+    - name: ls  
       run: ls -l
-    - name: cat  ./
+    - name: cat 
       run: cat ./1.txt
     - name: Cache node modules
       uses: actions/cache@v2
       env:
         cache-type: pro
       with:
-        path: ./
-        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./1.txt') }}
-    - name: Cache str
-      id: cachestr
+        path: ./testdir
+        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./README.md') }}
+    - name: cachefilehash
+      id: cachefilehash
       uses: actions/cache@v2
       with:
-        path: cachestr
-        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./1.txt') }}
+        path: cachefilehash
+        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./README.md') }}
 
-    - name: ls  ./
+    - name: ls  
       run: ls -l
     - name: hash
-      run: echo ${{ hashFiles('./1.txt') }}
+      run: echo ${{ hashFiles('./README.md') }}
 
-    - name: Generate cachestr
-      if: steps.cachestr.outputs.cache-hit != 'true'
+    - name: Generate cachefilehash
+      if: steps.cachefilehash.outputs.cache-hit != 'true'
       run: rm -rf ./1.txt;echo "rm file";echo "run Generate.sh";
     - name: cat  ./
       run: cat ./1.txt
