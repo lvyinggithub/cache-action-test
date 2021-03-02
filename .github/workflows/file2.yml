@@ -49,3 +49,18 @@ jobs:
       run: echo "no cache";
     - name: ls  
       run: cd ./testdir;ls -l
+
+
+
+
+
+    - name: Cache node modules
+      uses: actions/cache@v2
+      env:
+        cache-type: pro
+      with:
+        path: ./testdir
+        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./README.md') }}
+        
+    - name: ls  
+      run: cd ./testdir;ls -l
