@@ -19,7 +19,7 @@ jobs:
         cache-type: pro
       with:
         path: ./testdir
-        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('**/1.txt') }}
+        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('**/README.md') }}
         restore-keys: |
           ${{ runner.os }}-build-${{ env.cache-type }}-
           ${{ runner.os }}-build-
