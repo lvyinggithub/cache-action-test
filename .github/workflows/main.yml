@@ -19,7 +19,7 @@ jobs:
         key: ${{ runner.os }}-primes
 
     - name: Generate cachestr
-      if: steps.cache-primes.outputs.cache-hit != 'true'
+      if: steps.cachestr.outputs.cache-hit != 'true'
       run: echo "run Generate.sh";# not found cachestr
 
     - name: Use cachestr
