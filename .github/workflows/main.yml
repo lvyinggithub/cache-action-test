@@ -12,15 +12,15 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Cache Primes
-      id: cache-primes
+      id: cachestr
       uses: actions/cache@v2
       with:
-        path: prime-numbers
+        path: cachestr
         key: ${{ runner.os }}-primes
 
-    - name: Generate Prime Numbers
+    - name: Generate cachestr
       if: steps.cache-primes.outputs.cache-hit != 'true'
-      run: chmod +x ./generate-primes.sh;./generate-primes.sh -d prime-numbers
+      run: echo "not found cachestr";#run init.sh
 
-    - name: Use Prime Numbers
-      run: chmod +x ./primes.sh;./primes.sh -d prime-numbers
+    - name: Use cachestr
+      run: echo "use cache:cachestr";echo $cachestr
