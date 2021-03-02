@@ -27,8 +27,7 @@ jobs:
       env:
         cache-type: pro
       with:
-        path:|
-          ./testdir
+        path: ./testdir
         key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./README.md') }}
     - name: cachefilehash
       id: cachefilehash
