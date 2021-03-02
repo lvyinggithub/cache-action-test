@@ -15,7 +15,7 @@ jobs:
     - name: envSet
       id: envSet
       run: |
-        echo "::set-output name=envSetStr::$(who)"
+        echo "::set-output name=envSetStr::teststr"
     - name: echo env
       run: echo  ${{ steps.envSet.outputs.envSetStr }}
     - name: ls  ./
