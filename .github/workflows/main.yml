@@ -30,5 +30,3 @@ jobs:
     - name: print cachestr status
       run: echo ${{steps.cachestr.outputs.cache-hit}}
       
-    - name: print cachestr 
-      run: echo ${{steps.cachestr}}
