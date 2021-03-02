@@ -1,6 +1,6 @@
 
 
-name: Caching Primes
+name: Caching str
 
 on: push
 
@@ -11,12 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache Primes
+    - name: Cache str
       id: cachestr
       uses: actions/cache@v2
       with:
         path: cachestr
-        key: ${{ runner.os }}-primes
+        key: ${{ runner.os }}-str
 
     - name: Generate cachestr
       if: steps.cachestr.outputs.cache-hit != 'true'
