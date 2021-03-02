@@ -43,6 +43,9 @@ jobs:
 
     - name: Generate cachefilehash
       if: steps.cachefilehash.outputs.cache-hit != 'true'
-      run: rm -rf ./1.txt;echo "rm file";echo "run Generate.sh";
+      run: echo "using cache";
+    - name: Generate cachefilehash
+      if: steps.cachefilehash.outputs.cache-hit != 'false'
+      run: echo "no cache";
     - name: ls  
       run: cd ./testdir;ls -l
