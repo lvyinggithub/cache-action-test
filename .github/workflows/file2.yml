@@ -20,9 +20,8 @@ jobs:
 
 
     - name: ls  
-      run: ls -l
-    - name: cat 
-      run: cat ./1.txt
+      run: cd ./testdir;ls -l
+
     - name: Cache node modules
       uses: actions/cache@v2
       env:
@@ -38,12 +37,12 @@ jobs:
         key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./README.md') }}
 
     - name: ls  
-      run: ls -l
+      run: cd ./testdir;ls -l
     - name: hash
       run: echo ${{ hashFiles('./README.md') }}
 
     - name: Generate cachefilehash
       if: steps.cachefilehash.outputs.cache-hit != 'true'
       run: rm -rf ./1.txt;echo "rm file";echo "run Generate.sh";
-    - name: cat  ./
-      run: cat ./1.txt
+    - name: ls  
+      run: cd ./testdir;ls -l
