@@ -23,7 +23,7 @@ jobs:
       env:
         cache-type: pro
       with:
-        path: ./
+        path: ./2.txt
         key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./1.txt') }}
 
     - name: ls  ./
