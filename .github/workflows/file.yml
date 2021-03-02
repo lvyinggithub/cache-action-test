@@ -12,19 +12,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+    - name: rm
+      run: rm -rf ./1.txt
     - name: Cache node modules
       uses: actions/cache@v2
       env:
         cache-type: pro
       with:
-        path: ./testdir
+        path: ./
         key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('**/1.txt') }}
         restore-keys: |
           ${{ runner.os }}-build-${{ env.cache-type }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-    - name: ls  ./testdir
-      run: cd ./testdir;ls -l
+    - name: ls  ./
+      run: ls -l
     - name: hash
       run: echo ${{ hashFiles('**/1.txt') }}
