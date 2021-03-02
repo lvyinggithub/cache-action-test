@@ -16,8 +16,8 @@ jobs:
       id: envSet
       run: |
         echo "::set-output name=envSetStr::teststr"
-    - name: echo env
-      run: echo  ${{ steps.envSet.outputs.envSetStr }}
+    - name: echo env 
+      run: echo  ${{ steps.envSet.outputs.envSetStr }};#echo "::set-output name=dir::$(npm config get cache)"
     - name: ls  ./
       run: ls -l
     - name: cat  ./
