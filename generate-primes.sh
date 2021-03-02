@@ -1,2 +1,3 @@
 #/bin/bash
-echo "shell "
+echo "generate-primes.sh"
+echo $1
