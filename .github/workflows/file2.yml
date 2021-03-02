@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: rm
-      run: rm -rf ./1.txt
+      run: echo "rm";#rm -rf ./1.txt
     - name: ls  ./
       run: ls -l
     - name: Cache node modules
