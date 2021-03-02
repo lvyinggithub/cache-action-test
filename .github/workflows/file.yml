@@ -24,6 +24,6 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-type }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-    - name: Generate cachestr
-      if: steps.${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('**/1.txt') }}.outputs.cache-hit != 'true'
-      run: echo "run Generate.sh";# not found cachestr
+    - name: ls  ./testdir
+
+      run: cd ./testdir;ls -l
