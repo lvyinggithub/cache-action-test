@@ -43,10 +43,10 @@ jobs:
     - name: hash
       run: echo ${{ hashFiles('./testdir/Dockerfile') }}
 
-    - name: Generate cachefilehash
+    - name: Generate cachefilehash true
       if: steps.cachefilehash.outputs.cache-hit != 'true'
       run: echo "using cache";
-    - name: Generate cachefilehash
+    - name: Generate cachefilehash false
       if: steps.cachefilehash.outputs.cache-hit != 'false'
       run: echo "no cache";
     - name: ls  
