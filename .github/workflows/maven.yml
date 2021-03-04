@@ -21,7 +21,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: cachefilehash
+        
+        
+    - name: save cachefilehash
       id: cachefilehash
       uses: actions/cache@v2
       with:
@@ -31,6 +33,9 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-type }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
+          
+          
+          
     - name: Cache local Maven repository
       uses: actions/cache@v2
       with:
@@ -39,12 +44,17 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    - name: Generate cachefilehash true
-      if: steps.cachefilehash.outputs.cache-hit == 'true'
-      run: echo "found cache,using cache.Don't rebuild";
+
 
     - name: ls  
       run: cd ./testdir;ls -l
+      
+      
     - name: Generate cachefilehash false Build with Maven
       run: mvn -B package --file ./testdir/pom.xml
       if: steps.cachefilehash.outputs.cache-hit == 'false'
+
+
+    - name: Generate cachefilehash true
+      if: steps.cachefilehash.outputs.cache-hit == 'true'
+      run: echo "found cache,using cache.Don't rebuild";
