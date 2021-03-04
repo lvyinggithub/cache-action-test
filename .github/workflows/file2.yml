@@ -1,3 +1,5 @@
+
+
 name: Caching file2
 
 on: 
@@ -28,18 +30,18 @@ jobs:
         cache-type: pro
       with:
         path: ./testdir
-        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./README.md') }}
+        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./testdir/Dockerfile') }}
     - name: cachefilehash
       id: cachefilehash
       uses: actions/cache@v2
       with:
         path: cachefilehash
-        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./README.md') }}
+        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./testdir/Dockerfile') }}
 
     - name: ls  
       run: cd ./testdir;ls -l
     - name: hash
-      run: echo ${{ hashFiles('./README.md') }}
+      run: echo ${{ hashFiles('./testdir/README.md') }}
 
     - name: Generate cachefilehash
       if: steps.cachefilehash.outputs.cache-hit != 'true'
@@ -60,7 +62,7 @@ jobs:
         cache-type: pro
       with:
         path: ./testdir
-        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./README.md') }}
+        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./testdir/Dockerfile') }}
         
     - name: ls  
       run: cd ./testdir;ls -l
