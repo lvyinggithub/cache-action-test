@@ -48,10 +48,10 @@ jobs:
 
     - name: Generate cachefilehash true
       if: steps.cachefilehash.outputs.cache-hit == 'true'
-      run: echo "found cache,using cache";
+      run: echo "found cache,using cache.Don't rebuild";
     - name: Generate cachefilehash false
       if: steps.cachefilehash.outputs.cache-hit == 'false'
-      run: echo "no cache";
+      run: echo "no cache.need rebuild";
     - name: ls  
       run: cd ./testdir;ls -l
 
