@@ -41,7 +41,7 @@ jobs:
     - name: ls  
       run: cd ./testdir;ls -l
     - name: hash
-      run: echo ${{ hashFiles('./testdir/README.md') }}
+      run: echo ${{ hashFiles('./testdir/Dockerfile') }}
 
     - name: Generate cachefilehash
       if: steps.cachefilehash.outputs.cache-hit != 'true'
