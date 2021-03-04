@@ -37,7 +37,10 @@ jobs:
       with:
         path: cachefilehash
         key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./testdir/Dockerfile') }}
-
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-type }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
     - name: ls  
       run: cd ./testdir;ls -l
     - name: hash
