@@ -50,11 +50,11 @@ jobs:
       run: cd ./testdir;ls -l
       
       
-    - name: Generate cachefilehash false Build with Maven
+    - name: Generate cachefilehash is false .Build with Maven.It takes a long time
       run: mvn -B package --file ./testdir/pom.xml
       if: steps.cachefilehash.outputs.cache-hit == 'false'
 
 
-    - name: Generate cachefilehash true
+    - name: Generate cachefilehash is true.Do nothing.
       if: steps.cachefilehash.outputs.cache-hit == 'true'
       run: echo "found cache,using cache.Don't rebuild";
