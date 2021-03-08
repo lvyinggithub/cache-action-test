@@ -1,7 +1,8 @@
 
 
 name: Caching file2
-
+env:
+  cache-type: pro
 on: 
   push:
   workflow_dispatch:
@@ -26,8 +27,7 @@ jobs:
 
     - name: Cache node modules
       uses: actions/cache@v2
-      env:
-        cache-type: pro
+
       with:
         path: ./testdir
         key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('./testdir/Dockerfile') }}
