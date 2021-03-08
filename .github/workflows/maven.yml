@@ -54,7 +54,7 @@ jobs:
     - name: ls  
       run: cd ./testdir;ls -l
     - name: echo cache-hit 
-      run: echo steps.cachefilehash.outputs.cache-hit 
+      run: echo ${{steps.cachefilehash.outputs.cache-hit}}
       
     - name: Generate cache is false .Build with Maven.It takes a long time(For example, 3 hours)
       run: mvn -B package --file ./testdir/pom.xml
