@@ -9,7 +9,8 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-
+env:
+  cache-type: pro
 jobs:
   build:
 
@@ -23,7 +24,7 @@ jobs:
         java-version: 1.8
         
         
-    - name: save cachefilehash
+    - name: save cache
       id: cachefilehash
       uses: actions/cache@v2
       with:
@@ -40,9 +41,12 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-build-${{ env.cache-type }}-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
-          ${{ runner.os }}-maven-
+          ${{ runner.os }}-build-${{ env.cache-type }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+          
 
 
 
@@ -50,11 +54,11 @@ jobs:
       run: cd ./testdir;ls -l
       
       
-    - name: Generate cachefilehash is false .Build with Maven.It takes a long time
+    - name: Generate cache is false .Build with Maven.It takes a long time(For example, 3 hours)
       run: mvn -B package --file ./testdir/pom.xml
       if: steps.cachefilehash.outputs.cache-hit == 'false'
 
 
-    - name: Generate cachefilehash is true.Do nothing.
+    - name: Generate cache is true.Do nothing.
       if: steps.cachefilehash.outputs.cache-hit == 'true'
       run: echo "found cache,using cache.Don't rebuild";
