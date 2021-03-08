@@ -26,7 +26,7 @@ jobs:
 
     #GitHub will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 5 GB.    
     - name: save cache
-      id: cachefilehash2
+      id: cachefilehash
       uses: actions/cache@v2
       with:
         path: cachefilehash
