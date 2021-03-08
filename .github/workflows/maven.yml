@@ -24,7 +24,7 @@ jobs:
         java-version: 1.8
     
 
-        
+    #GitHub will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 5 GB.    
     - name: save cache
       id: cachefilehash2
       uses: actions/cache@v2
@@ -57,9 +57,9 @@ jobs:
       
     - name: Generate cache is false .Build with Maven.It takes a long time(For example, 3 hours)
       run: mvn -B package --file ./testdir/pom.xml
-      if: steps.cachefilehash2.outputs.cache-hit == 'false'
+      if: steps.cachefilehash.outputs.cache-hit == 'false'
 
 
     - name: Generate cache is true.Do nothing.
-      if: steps.cachefilehash2.outputs.cache-hit == 'true'
+      if: steps.cachefilehash.outputs.cache-hit == 'true'
       run: echo "found cache,using cache.Don't rebuild";
