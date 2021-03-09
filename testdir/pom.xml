@@ -20,13 +20,13 @@
        <artifactId>junit</artifactId>
        <version>4.12</version>
    </dependency>
-   <!--数据库驱动-->
+
    <dependency>
        <groupId>mysql</groupId>
        <artifactId>mysql-connector-java</artifactId>
        <version>5.1.47</version>
    </dependency>
-   <!-- 数据库连接池 -->
+
    <dependency>
        <groupId>com.mchange</groupId>
        <artifactId>c3p0</artifactId>
@@ -104,7 +104,7 @@
 <artifactId>spring-aop</artifactId>
 <version>4.1.9.RELEASE</version>
 </dependency>
-<!-- spring-jdbc-事务 -->
+
 <dependency>
 <groupId>org.springframework</groupId>
 <artifactId>spring-orm</artifactId>
@@ -131,7 +131,7 @@
 <artifactId>aspectjweaver</artifactId>
 <version>1.7.4</version>
 </dependency>
-<!--文件上传 -->
+
 <dependency>
 <groupId>commons-fileupload</groupId>
 <artifactId>commons-fileupload</artifactId>
@@ -255,14 +255,14 @@
 <version>1.2</version>
 </dependency>
 
-<!-- shiro与Spring整合 -->
+
 <dependency>
 <groupId>org.apache.shiro</groupId>
 <artifactId>shiro-spring</artifactId>
 <version>1.2.5</version>
 </dependency>
 
-<!-- JSON包 -->
+
 <dependency>
 <groupId>com.alibaba</groupId>
 <artifactId>fastjson</artifactId>
@@ -276,21 +276,20 @@
 <version>2.9.0</version>
 </dependency>
 
-<!-- 阿里云短信架包 -->
+
 <dependency>
 <groupId>com.aliyun</groupId>
 <artifactId>aliyun-java-sdk-core</artifactId>
 <version>4.1.0</version>
 </dependency>
 
-<!-- 腾讯qq邮箱架包 -->
+
 <dependency>
 <groupId>javax.mail</groupId>
 <artifactId>mail</artifactId>
 <version>1.4.5</version>
 </dependency>
 
-<!-- 使用elasticsearch 需要导入两个包，从网上复制的可能因为有特殊字符报cvc-complex-type.2.3: Element 'dependency' cannot have character [children], because the type's content type is element-only.错误，只需要自己重新排版即可-->
 <dependency>
 <groupId>org.elasticsearch.client</groupId>
 <artifactId>transport</artifactId>
