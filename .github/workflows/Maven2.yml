@@ -4,10 +4,7 @@
 name: Java CI with Maven2
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+
   workflow_dispatch:
 env:
   cache-type: pro
